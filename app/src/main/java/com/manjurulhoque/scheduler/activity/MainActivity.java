@@ -1,5 +1,6 @@
 package com.manjurulhoque.scheduler.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public CardView cardSmsScheduler;
     @BindView(R.id.cardEmailScheduler)
     public CardView cardEmailScheduler;
+    private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +32,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SmsSchedulerActivity.class));
             }
         });
+
+        MainActivity.context = getApplicationContext();
+    }
+
+    public static Context getAppContext() {
+        return MainActivity.context;
     }
 }
