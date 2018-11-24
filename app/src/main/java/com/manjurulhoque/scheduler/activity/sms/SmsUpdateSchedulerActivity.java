@@ -1,4 +1,4 @@
-package com.manjurulhoque.scheduler.activity;
+package com.manjurulhoque.scheduler.activity.sms;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

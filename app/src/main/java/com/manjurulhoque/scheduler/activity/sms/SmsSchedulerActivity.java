@@ -1,4 +1,4 @@
-package com.manjurulhoque.scheduler.activity;
+package com.manjurulhoque.scheduler.activity.sms;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.manjurulhoque.scheduler.R;
 import com.manjurulhoque.scheduler.adapter.SmsArrayAdapter;
 import com.manjurulhoque.scheduler.dbhelper.SmsDatabaseHelper;
-import com.manjurulhoque.scheduler.helper.SwipeHelper;
 import com.manjurulhoque.scheduler.model.Sms;
 
 import java.util.ArrayList;

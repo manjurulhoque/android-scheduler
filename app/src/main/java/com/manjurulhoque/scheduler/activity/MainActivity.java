@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.manjurulhoque.scheduler.R;
+import com.manjurulhoque.scheduler.activity.sms.SmsSchedulerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
