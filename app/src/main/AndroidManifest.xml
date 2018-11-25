@@ -21,12 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.sms.SmsSchedulerActivity" android:label="Sms Schedule"/>
-        <activity android:name=".activity.sms.CreateSmsScheduleActivity" android:label="Create Schedule"/>
+        <activity
+            android:name=".activity.sms.SmsSchedulerActivity"
+            android:label="Sms Schedule" />
+        <activity
+            android:name=".activity.sms.CreateSmsScheduleActivity"
+            android:label="Create Schedule" />
 
         <receiver android:name=".MyBroadcastReceiver" />
 
-        <activity android:name=".activity.sms.SmsUpdateSchedulerActivity" android:label="Update sms"/>
+        <activity
+            android:name=".activity.sms.SmsUpdateSchedulerActivity"
+            android:label="Update sms" />
+        <activity android:name=".activity.email.EmailSchedulerActivity" />
+        <activity android:name=".activity.email.CreateEmailScheduleActivity"></activity>
     </application>
 
 </manifest>

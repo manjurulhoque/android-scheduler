@@ -8,6 +8,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.manjurulhoque.scheduler.R;
+import com.manjurulhoque.scheduler.activity.email.EmailSchedulerActivity;
 import com.manjurulhoque.scheduler.activity.sms.SmsSchedulerActivity;
 
 import butterknife.BindView;
@@ -31,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, SmsSchedulerActivity.class));
+            }
+        });
+
+        cardEmailScheduler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, EmailSchedulerActivity.class));
             }
         });
 

@@ -1,6 +1,7 @@
 package com.manjurulhoque.scheduler;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsManager;
 import android.widget.Toast;
+
+import com.manjurulhoque.scheduler.activity.email.EmailSchedulerActivity;
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
     String actionUriSMSSend = "com.scheduler.action.SMS_SEND";
@@ -65,6 +68,35 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
                 mBuilder.setLights(Color.RED, 3000, 3000);
                 mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
             }
+        } else if (intent.getAction().equals(actionUriEmailNotification)) {
+
+            int id = intent.getIntExtra("id", 0);
+            System.out.println(id);
+            NotificationManager mNotificationManager = (NotificationManager) context
+                    .getSystemService(Context.NOTIFICATION_SERVICE);
+
+            Intent emailActivity = new Intent(context, EmailSchedulerActivity.class);
+            Bundle b1 = new Bundle();
+            b1.putString("openEmail", "openEmail");
+            b1.putInt("id", id);
+            emailActivity.putExtras(b1);
+            PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
+                    emailActivity, PendingIntent.FLAG_UPDATE_CURRENT);
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                    .setSmallIcon(R.drawable.ic_email)
+                    .setContentTitle("Scheduler")
+                    .setContentText("E-mail Schedule alert, Tap to open");
+            mBuilder.setContentIntent(contentIntent);
+            mBuilder.setAutoCancel(true);
+            //Vibration
+            mBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000});
+
+            // set sound
+            mBuilder.setSound(alarmSound);
+
+            //LED
+            mBuilder.setLights(Color.YELLOW, 3000, 3000);
+            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
     }
 }
